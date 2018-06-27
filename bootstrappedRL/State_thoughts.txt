@@ -1,0 +1,12 @@
+<PERSON>0: {cop, flesh, +human}, possession: { }, location: {}, relationships:{<PERSON>1 +2, <PERSON>9 -1}
+<PERSON>1: {}, possession: { }, location: {}, relationships:{<PERSON>0 +1}
+<LOCATION>0: {}
+<ORGANIZATION>
+<OBJECT>
+<MISC>
+
+
+[['probe', 'land', 'EmptyParameter', 'EmptyParameter', 'EmptyParameter']];[["Synset('investigation.n.02')", 'pocket-9.10-1', 'EmptyParameter', 'EmptyParameter', 'EmptyParameter']];The third probe landed.
+investigation: {motion}
+
+if it's useful for reward, keep it
