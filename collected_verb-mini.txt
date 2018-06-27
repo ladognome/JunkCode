@@ -1,0 +1,107 @@
+#confront run
+#confront defend
+#confront use
+#confront try
+#confront split (pulls a gun)
+#confront transfer message
+#confront discover
+#confront escape
+
+#escape remove
+#escape long
+#escape discover
+#escape judgement
+#escape confront
+
+
+Verb Selection:
+confront
+escape
+discover
+murder
+steal
+
+Original Semantics:
+confront-98
+
+    Agent [+animate | +organization]
+    Theme
+    Instrument
+
+confront(during(E), Agent, Theme, Instrument)
+
+escape-51.1
+
+    Theme [+concrete]
+    Initial_Location [+concrete]
+    Destination [+concrete]
+    Trajectory [+concrete]
+
+motion(during(E), Theme) path_rel(start(E), Theme, Initial_Location, ch_of_loc, prep) path_rel(during(E), Theme, Trajectory, ch_of_loc, prep) path_rel(end(E), Theme, Destination, ch_of_loc, prep)
+
+discover-84
+
+    Agent [+animate | +organization]
+    Theme
+    Source
+
+discover(during(E), Agent, Theme, Source)
+
+murder-42.1
+
+    Agent [+animate]
+    Patient [+animate]
+    Instrument
+
+path_rel(start(E), Initial_State, Patient, ch_of_state, prep) path_rel(result(E), Result, Patient, ch_of_state, prep) cause(Agent, E) alive(start(E), Patient) ¬alive(result(E), Patient)
+path_rel(start(E), Initial_State, Patient, ch_of_state, prep) path_rel(result(E), Result, Patient, ch_of_state, prep) cause(Agent, E) alive(start(E), Patient) ¬alive(result(E), Patient) utilize(during(E), Agent, Instrument)
+
+steal-10.5
+
+    Agent [+animate | +organization]
+    Theme
+    Source [+animate & +organization] | [+location & -region]
+    Beneficiary [+animate]
+
+manner(during(E), illegal, Agent) path_rel(start(E), Source, Theme, ch_of_poss, prep) path_rel(end(E), Beneficiary, Theme, ch_of_poss, prep) transfer(during(E), Theme) equals(Agent, Beneficiary) cause(Agent, E)
+manner(during(E), illegal, Agent) path_rel(start(E), Source, Theme, ch_of_poss, prep) path_rel(end(E), Beneficiary, Theme, ch_of_poss, prep) transfer(during(E), Theme) cause(Agent, E)
+
+
+------------------------------------------------------------------
+
+ch_of_pos, tr_of_info, ch_of_poss, ch_of_loc, ch_of_state, ch_on_scale
+all starts are pre-conditions and result/end are post-conditions
+So I also need to fill out:
+state,location,has_possession,transfer_info,change_value
+
+each entity can only be in one location at a time
+only one person can have possession of something??
+if confined, cannot change location
+if !alive, -animate
+
+------------------------------------------------------------------
+conditions:
+has_possession(Agent,Item)
+location(Agent,Location)
+together(Agent1,Agent2) -- physically mixed/attached
+desire(Agent,Theme)
+does(Agent,Act)
+apply_heat(Instrument,Patient)
+has_goal(Agent,Goal)
+neglect(Agent,Theme)
+discover(Agent,Theme,Source)
+confront(Agent.Theme,Instrument)
+consider(Agent,Theme)
+transfer_info
+
+
+
+exist(Theme)
+visible(X)
+destroyed(X)
+alive(X)
+uncomfortable(X)
+confined(Theme)
+asleep(X)
+
+***make murder illegal
